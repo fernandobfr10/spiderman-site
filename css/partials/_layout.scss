@@ -5,7 +5,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  overflow: hidden;
+  height: 85vh;
+  overflow: none;
+  
+
+  @include responsive() {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+  }
 
   &__content {
     max-width: 576px;
@@ -18,6 +26,11 @@
     img {
       width: 150%;
       transform: translate3d(-170px, 0, 0);
+
+      @include responsive() {
+        width: 100%;
+        transform: translate3d(0, 0, 0);
+      }
     }
   }
 
@@ -104,5 +117,35 @@
         }
       }
     }
+  }
+}
+
+.content__logos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+    content: '';
+    width: 105%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: linear-gradient(103.63deg, #0A0C10 16.9%, rgba(10, 12, 16, 0.8) 40.86%, #0A0C10 65.44%);
   }
 }
